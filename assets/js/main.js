@@ -261,7 +261,7 @@
 
 
 
-	// 获取完整文本 
+	// 获取完整文本_CMM
 	let fullText = $('.full-text').text();
 
 	// 默认只显示截断后的文字
@@ -300,8 +300,12 @@
 
 	});
 
+// // 在sidebar中子欄目點擊後就收sidebar
+// $('#childli').click(function () {
 
+// 	$sidebar.addClass("inactive");
 
+// });
 	
 
 	// CMM 点击链接时显示对应的iframe内容-績效獎金
@@ -310,8 +314,8 @@
 		$sidebar.addClass("inactive");
 		document.getElementById("content").innerHTML = '<iframe width="100%" height="800" src="https://lookerstudio.google.com/embed/reporting/84721898-a5e2-4d5c-94b8-105067527c43/page/YJdcD" frameborder="0" style="border:0" allowfullscreen></iframe>';
 
-		// 滚动到顶部
-		window.scrollTo(0, 0);
+		// // 滚动到顶部
+		// window.scrollTo(0, 0);
 	});
 
 	// CMM 点击链接时显示对应的iframe内容-???
@@ -320,8 +324,8 @@
 		$sidebar.addClass("inactive");
 		document.getElementById("content").innerHTML = '<iframe width="100%" height="967" src="https://lookerstudio.google.com/embed/reporting/6b219f40-c208-4658-aca9-7909dbeff96f/page/JgD" frameborder="0" style="border:0" allowfullscreen></iframe>';
 
-		// 滚动到顶部
-		window.scrollTo(0, 0);
+
+
 	});
 
 })(jQuery);
