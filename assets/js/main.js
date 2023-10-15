@@ -300,12 +300,12 @@
 
 	});
 
-// 在sidebar中子欄目點擊後就收sidebar
-$('#childli').click(function () {
+// // 在sidebar中子欄目點擊後就收sidebar
+// $('#childli').click(function () {
 
-	$sidebar.addClass("inactive");
+// 	$sidebar.addClass("inactive");
 
-});
+// });
 	
 
 	// CMM 点击链接时显示对应的iframe内容-績效獎金
