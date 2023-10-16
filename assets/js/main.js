@@ -78,8 +78,14 @@
 		$sidebar.addClass('inactive');
 	});
 
+	// // 大於 large 則 remove 「隱藏sidebar」_CMM
+	// breakpoints.on('>large', function () {
+	// 	$sidebar.removeClass('inactive');
+	// });
+
+	// // 大於 large 則 remove sidebar_CMM
 	breakpoints.on('>large', function () {
-		$sidebar.removeClass('inactive');
+		$sidebar.addClass('inactive');
 	});
 
 	// Hack: Workaround for Chrome/Android scrollbar position bug.
@@ -300,12 +306,7 @@
 
 	});
 
-// // 在sidebar中子欄目點擊後就收sidebar
-// $('#childli').click(function () {
 
-// 	$sidebar.addClass("inactive");
-
-// });
 	
 
 	// CMM 点击链接时显示对应的iframe内容-績效獎金

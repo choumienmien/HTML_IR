@@ -410,6 +410,7 @@ hr {
       margin-top: -3em; }
       .row.gtr-200.gtr-uniform > * {
         padding-top: 3em; }
+  /* 改掉原本設置，改為與 1280 一樣樣式_CMM */
   @media screen and (max-width: 1680px) {
     .row {
       display: flex;
@@ -2102,7 +2103,7 @@ button,
           font-size: 1.5rem; }
       #sidebar.inactive {
         margin-left: -24em; } }
-  /* @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1280px) {
     #sidebar {
       box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175);
       height: 100%;
@@ -2132,7 +2133,7 @@ button,
           font-size: 1.5rem;
           margin-left: -0.4375em; }
       body.is-preload #sidebar {
-        display: none; } } */
+        display: none; } }
   @media screen and (max-width: 736px) {
     #sidebar .toggle {
       text-indent: 7.25em;
@@ -2186,11 +2187,11 @@ button,
         margin: 0; }
       #header .icons {
         height: 5em;
-        /* line-height: 5em; *//* 會導致icon顯示的游標字體的黑框變大 */
+        /* line-height: 5em; *//* 會導致icon顯示的游標字體的黑框變大_CMM */
         position: absolute;
         right: -0.5em;
         top: 0; 
-        /* 取代line-height，調整icon顯示的游標字體的黑框 */
+        /* 取代line-height，調整icon顯示的游標字體的黑框_CMM */
       margin-top: 30px;} }
 
 /* Banner */
