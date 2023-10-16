@@ -78,15 +78,15 @@
 		$sidebar.addClass('inactive');
 	});
 
-	// // 大於 large 則 remove 「隱藏sidebar」_CMM
-	// breakpoints.on('>large', function () {
-	// 	$sidebar.removeClass('inactive');
-	// });
-
-	// 大於 large 則 remove sidebar_CMM
+	// 大於 large 則 remove 「隱藏sidebar」_CMM
 	breakpoints.on('>large', function () {
-		$sidebar.addClass('inactive');
+		$sidebar.removeClass('inactive');
 	});
+
+	// // 大於 large 則 remove sidebar_CMM 但因為main.css會侷限高度，所以關起來
+	// breakpoints.on('>large', function () {
+	// 	$sidebar.addClass('inactive');
+	// });
 
 	// Hack: Workaround for Chrome/Android scrollbar position bug.
 	if (browser.os == 'android'
