@@ -83,7 +83,7 @@
 	// 	$sidebar.removeClass('inactive');
 	// });
 
-	// // 大於 large 則 remove sidebar_CMM
+	// 大於 large 則 remove sidebar_CMM
 	breakpoints.on('>large', function () {
 		$sidebar.addClass('inactive');
 	});
