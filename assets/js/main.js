@@ -78,15 +78,15 @@
 		$sidebar.addClass('inactive');
 	});
 
-	// 大於 large 則 remove 「隱藏sidebar」_CMM
-	breakpoints.on('>large', function () {
-		$sidebar.removeClass('inactive');
-	});
-
-	// // 大於 large 則 remove sidebar_CMM 但因為main.css會侷限高度，所以關起來
+	// // 大於 large 則 remove 「隱藏sidebar」_CMM
 	// breakpoints.on('>large', function () {
-	// 	$sidebar.addClass('inactive');
+	// 	$sidebar.removeClass('inactive');
 	// });
+
+	// 大於 large 則 remove sidebar_CMM 但因為main.css會侷限高度，所以關起來
+	breakpoints.on('>large', function () {
+		$sidebar.addClass('inactive');
+	});
 
 	// Hack: Workaround for Chrome/Android scrollbar position bug.
 	if (browser.os == 'android'
@@ -307,26 +307,25 @@
 	});
 
 
-	
 
 	// CMM 点击链接时显示对应的iframe内容-績效獎金
-	document.getElementById("link").addEventListener("click", () => {
-		//   隐藏 sidebar
-		$sidebar.addClass("inactive");
-		document.getElementById("content").innerHTML = '<iframe width="100%" height="800" src="https://lookerstudio.google.com/embed/reporting/84721898-a5e2-4d5c-94b8-105067527c43/page/YJdcD" frameborder="0" style="border:0" allowfullscreen></iframe>';
+		$("#link").click(function () {
+			$sidebar.addClass("inactive");
+			let height = "1600px";
+			if ($(window).width() < 768) {
+				// 小屏幕使用较小的height
+    		height = "790px"; 
+  				}
 
-		// // 滚动到顶部
-		// window.scrollTo(0, 0);
-	});
+			$("#content").html('<iframe width="100%" height="' + height + '" src="https://lookerstudio.google.com/embed/reporting/84721898-a5e2-4d5c-94b8-105067527c43/page/YJdcD" frameborder="0" style="border:0" allowfullscreen" frameborder="0" style="border:0" allowfullscreen></iframe>')
+		  })
 
+	
 	// CMM 点击链接时显示对应的iframe内容-???
 	document.getElementById("link2").addEventListener("click", () => {
 		//   隐藏 sidebar
 		$sidebar.addClass("inactive");
-		document.getElementById("content").innerHTML = '<iframe width="100%" height="967" src="https://lookerstudio.google.com/embed/reporting/6b219f40-c208-4658-aca9-7909dbeff96f/page/JgD" frameborder="0" style="border:0" allowfullscreen></iframe>';
-
-
-
-	});
+		document.getElementById("content").innerHTML = '<iframe width="100%" height="500" src="https://lookerstudio.google.com/embed/reporting/6b219f40-c208-4658-aca9-7909dbeff96f/page/JgD" frameborder="0" style="border:0" allowfullscreen></iframe>';
+		});
 
 })(jQuery);
