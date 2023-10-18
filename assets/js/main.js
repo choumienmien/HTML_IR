@@ -325,7 +325,7 @@
 	document.getElementById("link2").addEventListener("click", () => {
 		//   隐藏 sidebar
 		$sidebar.addClass("inactive");
-		document.getElementById("content").innerHTML = '<iframe width="100%" height="500" src="https://lookerstudio.google.com/embed/reporting/6b219f40-c208-4658-aca9-7909dbeff96f/page/JgD" frameborder="0" style="border:0" allowfullscreen></iframe>';
+		document.getElementById("content").innerHTML = '<iframe width="100%" height="967" src="https://lookerstudio.google.com/embed/reporting/fc223d5d-283b-4128-b1e4-0543fe036d59/page/JgD" frameborder="0" style="border:0" allowfullscreen></iframe>';
 		});
 
 })(jQuery);
