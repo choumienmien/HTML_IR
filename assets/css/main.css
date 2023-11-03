@@ -1519,7 +1519,7 @@ ul.pagination {
       padding-right: 0; } }
 
 /* Table */
-/* .table-wrapper {
+.table-wrapper {
   -webkit-overflow-scrolling: touch;
   overflow-x: auto; }
 
@@ -1557,7 +1557,7 @@ table {
     table.alt thead {
       border-bottom: 0; }
     table.alt tfoot {
-      border-top: 0; } */
+      border-top: 0; }
 
 /* Button */
 input[type="submit"],
