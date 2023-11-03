@@ -121,10 +121,12 @@ margin-top: 0;
   left: -22px;
 }
 .title5:hover::after {
+  top: 30px;
   left: -200%;
 }
 .title6:hover::after {
-  left: -500%;
+  top: 30px;
+  left: -200%;
 }
 
 /* Type */
@@ -1516,7 +1518,7 @@ ul.pagination {
     ul.pagination li:first-child {
       padding-right: 0; } }
 
-/* Table */
+Table
 .table-wrapper {
   -webkit-overflow-scrolling: touch;
   overflow-x: auto; }

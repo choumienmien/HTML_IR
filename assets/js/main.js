@@ -400,16 +400,7 @@
 	});
 
 
-	// CMM
-	$('#table').bootstrapTable({
-		url:" https://choumienmien.github.io/HTML_IR/topic_history.json",
-		pagination: true,//开启分页
-		search: true, //开启刷选
-		columns: columns,
-		pageSize:10,
-		maintainSelected :true,
-	
-	});
+
 
 
 
