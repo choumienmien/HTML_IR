@@ -9,6 +9,17 @@
 	var $window = $(window),
 		$head = $('head'),
 		$body = $('body');
+	$width = 0;
+	// 抓初始頁面的長寬比例_CMM
+	rate = $("#originalpage").data("height") / $("#originalpage").data("width")
+	function screenSmall() {
+		if ($(window).width() > 1850) {
+			width = 1850 * .875;
+		}
+		else {
+			width = $(window).width() * .875;
+		}
+	}
 
 	// Breakpoints.
 	breakpoints({
@@ -24,11 +35,17 @@
 
 	// Stops animations/transitions until the page has ...
 
-	// ... loaded.
+	// ... loaded_CMM.載入的時候設定與長寬與iframe一樣(是針對looker.html_總覽指標)
 	$window.on('load', function () {
 		window.setTimeout(function () {
 			$body.removeClass('is-preload');
 		}, 100);
+		screenSmall()
+		$("#originalpage").width(width);
+		$("#originalpage").height(width * rate + 20);
+		console.log("here");
+
+
 	});
 
 	// ... stopped resizing.
@@ -105,7 +122,6 @@
 
 			// Toggle.
 			$sidebar.toggleClass('inactive');
-
 		});
 
 	// Events.
@@ -132,7 +148,6 @@
 
 		// Hide sidebar.
 		$sidebar.addClass('inactive');
-
 		// Redirect to href.
 		setTimeout(function () {
 
@@ -166,7 +181,9 @@
 
 		// Deactivate.
 		$sidebar.addClass('inactive');
-
+		screenSmall();
+		$("#originalpage").width(width);
+		$("#originalpage").height(width * rate + 20);
 	});
 
 	// Scroll lock.
@@ -308,24 +325,80 @@
 
 
 
-	// CMM 点击链接时显示对应的iframe内容-績效獎金
-		$("#link").click(function () {
-			$sidebar.addClass("inactive");
-			let height = "1600px";
-			if ($(window).width() < 768) {
-				// 小屏幕使用较小的height
-    		height = "790px"; 
-  				}
-
-			$("#content").html('<iframe width="100%" height="' + height + '" src="https://lookerstudio.google.com/embed/reporting/84721898-a5e2-4d5c-94b8-105067527c43/page/YJdcD" frameborder="0" style="border:0" allowfullscreen" frameborder="0" style="border:0" allowfullscreen></iframe>')
-		  })
-
-	
-	// CMM 点击链接时显示对应的iframe内容-???
-	document.getElementById("link2").addEventListener("click", () => {
-		//   隐藏 sidebar
+	// CMM 点击链接时显示对应的iframe内容-績效獎金_CMM
+	$("#link").click(function () {
 		$sidebar.addClass("inactive");
-		document.getElementById("content").innerHTML = '<iframe width="100%" height="967" src="https://lookerstudio.google.com/embed/reporting/fc223d5d-283b-4128-b1e4-0543fe036d59/page/JgD" frameborder="0" style="border:0" allowfullscreen></iframe>';
-		});
+		screenSmall();
+		// 抓iframe在google looker studio中的長寬
+		rate = 800 / 600;
+		height = width * rate;
 
-})(jQuery);
+		$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + width * height + '" src="https://lookerstudio.google.com/embed/reporting/84721898-a5e2-4d5c-94b8-105067527c43/page/YJdcD" frameborder="0" style="border:0" allowfullscreen"></iframe>'
+
+		)
+	})
+
+	// CMM 点击链接时显示对应的iframe内容-YOUTUBE_CMM
+	$("#link2").click(function () {
+		$sidebar.addClass("inactive");
+		screenSmall();
+		// 抓iframe在google looker studio中的長寬
+		rate = 967 / 600;
+		height = width * rate;
+
+		$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + width * height + '" src="https://lookerstudio.google.com/embed/reporting/fc223d5d-283b-4128-b1e4-0543fe036d59/page/JgD" frameborder="0" style="border:0" allowfullscreen"></iframe>'
+
+		)
+	})
+
+
+	// $("#test").click(function(){
+	// 	console.log($("#test1").data("width"));
+	// 	console.log($("#test1").data("height"))
+	// 	rate=$("#test1").data("width")/$("#test1").data("height")
+
+	// })
+
+	// 根據不同的 media screen 的時候設定與長寬與iframe一樣(是針對looker.html_總覽指標)
+	$window.on('resize', function () {
+		screenSmall();
+		$("#originalpage").width(width * 1);
+		$("#originalpage").height(width * rate + 20);
+		// console.log("no");
+	});
+
+	$(".toggle").on("click", function () {
+
+// 0.9? 0.875?
+		if ($("#sidebar").hasClass("inactive")) {
+			if ($(window).width() > 1850) {
+				width = 1850 * .9;
+			} else {
+				width = $(window).width() * .9;
+			}
+			$("#originalpage").width(width);
+
+		} else {
+			if ($(window).width() > 2230) {
+				width = 1850;
+				$("#originalpage").width(width * .9);
+			} else if ($(window).width() > 1850) {
+				width = 1850;
+				$("#originalpage").width(width * .675);
+			} else if ($(window).width() > 1280) {
+				width = $(window).width();
+				$("#originalpage").width(width * .656);
+			} else {
+				width = $(window).width();
+				$("#originalpage").width(width * .9);
+			}
+
+		}
+		// $("#test1").height(width * rate + 20);
+		// console.log("yes");
+		// console.log(width);
+	});
+
+
+
+})(jQuery)
