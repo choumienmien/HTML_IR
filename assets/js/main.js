@@ -400,5 +400,16 @@
 	});
 
 
+	// CMM
+	$('#table').bootstrapTable({
+		pagination: true,//开启分页
+		search: true, //开启刷选
+		columns: columns,
+		pageSize:10,
+		maintainSelected :true,
+	
+	});
+
+
 
 })(jQuery)
