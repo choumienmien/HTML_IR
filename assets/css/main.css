@@ -2378,4 +2378,12 @@ button,
     span.page-list .btn-secondary {
       background-color: transparent  !important; 
       border-color: transparent  !important;
+      
+    .bootstrap-table .table td {
+        height: 100px;
+      }
+
+    .bootstrap-table .info-col{
+        white-space: pre-wrap;
+      }
     }
