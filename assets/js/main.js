@@ -441,14 +441,6 @@
 		}, 1000);
 	});
 
-	// 選取所有摘要的td
-	const $summaryTDs = $('td:nth-child(5)')
-
-	// 遍歷加入button
-	$summaryTDs.each(function () {
-		const $button = $('<button>Button</button>')
-		$(this).append($button)
-	});
 
 
 })(jQuery)
