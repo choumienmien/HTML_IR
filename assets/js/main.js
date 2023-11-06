@@ -394,6 +394,13 @@
 			}
 
 		}
+
+		$('#table').on('formatter', function(value, row, index) {
+			if(index === 1) { // 对 info 列格式化
+			  return value.replace(/\n/g, '<br>');
+			}
+			return value;
+		  });
 		// $("#test1").height(width * rate + 20);
 		// console.log("yes");
 		// console.log(width);
