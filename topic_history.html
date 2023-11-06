@@ -199,7 +199,7 @@
 			if (fullText.length > 100) {
 				ellipsisText += '...';
 				return `<span class="ellipsis">${ellipsisText}</span>
-          <a class="full-text" data-full="${fullText}">查看全文</a>`;
+          <a class="text" data-full="${fullText}">查看全文</a>`;
 
 			}
 
@@ -214,7 +214,7 @@
 			// }
 
 		}
-		$(".full-text").on("click", function () {
+		$(".text").on("click", function () {
 			// const fullText = $(".full-text").data("full");
 			console.log("test");
 			$('.ellipsis').text(fullText);
