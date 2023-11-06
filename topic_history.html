@@ -224,7 +224,7 @@
 			if (fullText.length > 100) {
 				ellipsisText += '...';
 				return `<span class="ellipsis">${ellipsisText}</span>
-          <a class="full-text" data-full="${fullText}" data-formatter="testing">查看全文</a>`;
+          <a class="full-text" data-full="${fullText}" onclick="console.log(this.id)">查看全文</a>`;
 
 			}
 
@@ -248,13 +248,7 @@
 			console.log("tests")
 		};
 
-		// 定義點擊事件處理函數
-		function handleClick() {
-			console.log("按鈕被點擊了！");
-		}
 
-		// 將點擊事件處理函數綁定到按鈕元素上
-		document.getElementsByClassName("full-text").addEventListener("click", handleClick);
 
 
 
