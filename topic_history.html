@@ -191,10 +191,9 @@
 
 	<script>
 		var $table = $('#table')
-		let fullText = "";
 		function summaryFormatter(value, row, index) {
 			// 保存完整文本
-			fullText = value;
+			const fullText = value;
 
 			let ellipsisText = fullText.substring(0, 100);
 			if (fullText.length > 100) {
@@ -209,8 +208,8 @@
 
 		window.operateEvents = {
 			'click .full-text': function (e, value, row, index) {
-				// const fullText = $(".full-text").data("full");
-				$('.ellipsis').text(fullText);
+				const fullTextCall = $(".full-text").data("full");
+				$('.ellipsis').text(fullTextCall);
 				// $('#scrollWord').slideDown();
 			}
 
