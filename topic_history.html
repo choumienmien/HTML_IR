@@ -191,9 +191,10 @@
 
 	<script>
 		var $table = $('#table')
+		let fullText = "";
 		function summaryFormatter(value, row, index) {
 			// 保存完整文本
-			const fullText = value;
+			fullText = value;
 
 			let ellipsisText = fullText.substring(0, 100);
 			if (fullText.length > 100) {
