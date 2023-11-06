@@ -216,7 +216,7 @@
 	<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
 
 	<script>
-		var $table = $('#table')
+		// var $table = $('#table')
 		function summaryFormatter(value, row, index) {
 			// 保存完整文本
 			const fullText = value;
@@ -232,29 +232,38 @@
 
 		}
 
-		window.operateEvents = {
-			'click .full-text': function (e, value, row, index) {
-				const fullTextCall = $(".full-text").data("full");
-				$('.ellipsis').text(fullTextCall);
-				$('full-text')
-				// $('#scrollWord').slideDown();
-			}
+		// window.operateEvents = {
+		// 	'click .full-text': function (e, value, row, index) {
+		// 		const fullTextCall = $(".full-text").data("full");
+		// 		$('.ellipsis').text(fullTextCall);
+		// 		$('full-text')
+		// 		// $('#scrollWord').slideDown();
+		// 	}
 
-		}
+		// }
+
+		$('.moreButton').on('click', function () {
+			$('#content').text(textContent);
+			$('#scrollWord').slideDown();
+
+		});
+		$('.moreButton2').on('click', function () {
+			$('#content').text(textContent2);
+			$('#scrollWord').slideDown();
+
+		});
 
 
 
-
-
-		// $('#x').on('click', function () {
-		// 	times = 0;
-		// 	console.log('close');
-		// 	$('#scrollWord').scrollTop(0);
-		// 	$('#scrollWord').slideUp();
-		// 	setTimeout(() => {
-		// 		$('#content').text('');
-		// 	}, 1000);
-		// });
+		$('#x').on('click', function () {
+			times = 0;
+			console.log('close');
+			$('#scrollWord').scrollTop(0);
+			$('#scrollWord').slideUp();
+			setTimeout(() => {
+				$('#content').text('');
+			}, 1000);
+		});
 
 
 
