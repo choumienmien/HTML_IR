@@ -241,16 +241,13 @@
 
 		// }
 
-		$('.moreButton').on('click', function () {
-			$('#content').text(textContent);
+		$('.full-text').on('click', function () {
+			let fullTextCall = $(".full-text").data("full");
+			$('#ellipsis').html(fullTextCall);
 			$('#scrollWord').slideDown();
 
 		});
-		$('.moreButton2').on('click', function () {
-			$('#content').text(textContent2);
-			$('#scrollWord').slideDown();
 
-		});
 
 
 
