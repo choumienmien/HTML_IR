@@ -201,17 +201,17 @@
 			let ellipsisText = fullText.substring(0, 100);
 			if (fullText.length > 100) {
 				ellipsisText += '...';
-			}
-
-			return `<span class="ellipsis">${ellipsisText}</span>
+				return `<span class="ellipsis">${ellipsisText}</span>
           <a class="full-text" data-full="${fullText}">查看全文</a>`;
+
+			}
 
 
 		}
 
 
 
-		$('#full-text').on('click', function () {
+		$('.full-text').on('click', function () {
 			$('#content').text(fullText);
 			$('#scrollWord').slideDown();
 
