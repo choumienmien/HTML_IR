@@ -247,7 +247,6 @@
 
 			console.log("tests")
 		};
-		var button = document.getElementsByClassName("full-text");
 
 		// 定義點擊事件處理函數
 		function handleClick() {
@@ -255,7 +254,7 @@
 		}
 
 		// 將點擊事件處理函數綁定到按鈕元素上
-		button.addEventListener("click", handleClick);
+		document.getElementsByClassName("full-text").addEventListener("click", handleClick);
 
 
 
