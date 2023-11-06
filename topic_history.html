@@ -224,7 +224,7 @@
 			if (fullText.length > 100) {
 				ellipsisText += '...';
 				return `<span class="ellipsis">${ellipsisText}</span>
-          <a class="full-text" data-full="${fullText}">查看全文</a>`;
+          <a class="full-text" data-full="${fullText}" data-formatter="testing">查看全文</a>`;
 
 			}
 
@@ -240,15 +240,22 @@
 		// 	}
 
 		// }
-
-		$('.full-text').on('click', function () {
+		function testing() {
 			// let fullTextCall = $(".full-text").data("full");
 			// $('#ellipsis').html(fullTextCall);
 			// $('#scrollWord').slideDown();
 
 			console.log("tests")
-		});
+		};
+		var button = document.getElementsByClassName("full-text");
 
+		// 定義點擊事件處理函數
+		function handleClick() {
+			console.log("按鈕被點擊了！");
+		}
+
+		// 將點擊事件處理函數綁定到按鈕元素上
+		button.addEventListener("click", handleClick);
 
 
 
