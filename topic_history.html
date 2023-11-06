@@ -208,7 +208,7 @@
 
 		window.operateEvents = {
 			'click .full-text': function (e, value, row, index) {
-				const fullText = this.dataset.full;
+				const fullText = this.data("full");
 				$('#content').text(fullText);
 				$('#scrollWord').slideDown();
 			}
