@@ -208,13 +208,12 @@
 
 		window.operateEvents = {
 			'click .full-text': function (e, value, row, index) {
-				$('#content').text(value);
+				const fullText = this.dataset.full;
+				$('#content').text(fullText);
 				$('#scrollWord').slideDown();
 			}
 
 		}
-
-
 
 
 		$('#x').on('click', function () {
