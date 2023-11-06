@@ -231,18 +231,10 @@
 
 		}
 
-		// window.operateEvents = {
-		// 	'click .full-text': function (e, value, row, index) {
-		// 		const fullTextCall = $(".full-text").data("full");
-		// 		$('.ellipsis').text(fullTextCall);
-		// 		$('full-text')
-		// 		// $('#scrollWord').slideDown();
-		// 	}
 
-		// }
 		function testing() {
 			let fullTextCall = $(".full-text").data("full");
-			$('#ellipsis').html(fullTextCall);
+			$('#content').html('<p id="content" style=" text-align:left;"' + + fullTextCall + '</p>');
 			$('#scrollWord').slideDown();
 		};
 
