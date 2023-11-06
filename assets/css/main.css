@@ -3784,16 +3784,3 @@ span.page-list .btn-secondary {
   border-color: transparent !important;
 
 }
-
-/* CMM */
-.ellipsis {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.full {
-  text-overflow: initial;
-  overflow: visible;
-  white-space: normal;
-}

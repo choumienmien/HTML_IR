@@ -193,20 +193,45 @@
 		// function actionFormatter(value, row, index) {
 		// 	return '<p id="textContent">' + value + '</p>' + '<button class="btn btn-secondary moreButton">顯示更多</>'
 		// }
+		var $table = $('#table')
+
 
 		function summaryFormatter(value, row, index) {
-			if (value.length > 100) {
-				return `<span class="ellipsis">${value.substring(0, 100)}...</span>
-							<a class="full-text">查看全文</a>`;
+			// 保存完整文本
+			const fullText = value;
+
+			let ellipsisText = fullText.substring(0, 100);
+			if (fullText.length > 100) {
+				ellipsisText += '...';
 			}
 
-			return value;
+			return `<span class="ellipsis">${ellipsisText}</span>
+          <a class="full-text" data-full="${fullText}">查看全文</a>`;
+
+
 		}
 
-		$('.full-text').click(function () {
-			$(this).parent().removeClass('ellipsis').addClass('full');
-			$(this).remove();
+
+
+		$('#table').on('click', '.full-text', function () {
+			$('#content').text(fullText);
+			$('#scrollWord').slideDown();
+
 		});
+
+
+		$('#x').on('click', function () {
+			times = 0;
+			console.log('close');
+			$('#scrollWord').scrollTop(0);
+			$('#scrollWord').slideUp();
+			setTimeout(() => {
+				$('#content').text('');
+			}, 1000);
+		});
+
+
+
 
 	</script>
 </body>
