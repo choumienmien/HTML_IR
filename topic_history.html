@@ -190,9 +190,23 @@
 
 	<script>
 
-		function actionFormatter(value, row, index) {
-			return '<p id="textContent">' + value + '</p>' + '<button class="btn btn-secondary moreButton">顯示更多</>'
+		// function actionFormatter(value, row, index) {
+		// 	return '<p id="textContent">' + value + '</p>' + '<button class="btn btn-secondary moreButton">顯示更多</>'
+		// }
+
+		function summaryFormatter(value, row, index) {
+			if (value.length > 100) {
+				return `<span class="ellipsis">${value.substring(0, 100)}...</span>
+							<a class="full-text">查看全文</a>`;
+			}
+
+			return value;
 		}
+
+		$('.full-text').click(function () {
+			$(this).parent().removeClass('ellipsis').addClass('full');
+			$(this).remove();
+		});
 
 	</script>
 </body>
