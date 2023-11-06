@@ -124,6 +124,32 @@
 					</ul>
 				</nav>
 
+
+
+
+				<div id="scrollWord" style="
+				position: fixed;
+				background-color: rgba(10, 10, 10, 0.85);
+				color: rgb(235, 235, 235);
+				width: 70%;
+				height:50%;
+				top: 10%;
+				left:20%;
+				padding: 40px;
+				z-index: 2;
+				text-align:center;
+				overflow:scroll;
+				display: none;">
+
+					<p id="content" style=" text-align:left;">
+
+					</p>
+					<button id="x">CLOSE</button>
+				</div>
+
+
+
+
 				<!-- Section -->
 				<section>
 					<header class="major">
@@ -210,6 +236,7 @@
 			'click .full-text': function (e, value, row, index) {
 				const fullTextCall = $(".full-text").data("full");
 				$('.ellipsis').text(fullTextCall);
+				$('full-text')
 				// $('#scrollWord').slideDown();
 			}
 
