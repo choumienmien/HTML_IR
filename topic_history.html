@@ -208,22 +208,22 @@
 
 
 
-		$('#fullText').on('click', function () { console.log("test"); });
-		$("#fullText").on('click', function () {
-			// const fullText = $(".full-text").data("full");
-			console.log("test");
-			// $('.ellipsis').text(fullText);
-			// $('#scrollWord').slideDown();
-		});
-
-		// window.operateEvents = {
-		// 	// 'click .full-text': function (e, value, row, index) {
+		// $('#fullText').on('click', function () { console.log("test"); });
+		// $("#fullText").on('click', function () {
 		// 	// const fullText = $(".full-text").data("full");
-		// 	// $('#content').text(fullText);
+		// 	console.log("test");
+		// 	// $('.ellipsis').text(fullText);
 		// 	// $('#scrollWord').slideDown();
-		// 	// }
+		// });
 
-		// }
+		window.operateEvents = {
+			'click .full-text': function (e, value, row, index) {
+				const fullText = $(".full-text").data("full");
+				$('.ellipsis').text(fullText);
+				// $('#scrollWord').slideDown();
+			}
+
+		}
 
 
 
