@@ -48,6 +48,25 @@
 
 	});
 
+	//CMM_顯示更多
+
+	var textContent = '';
+	var textContentSub = '';
+	var textContent2 = '';
+	var textContent2Sub = '';
+	$window.on('load', function () {
+		window.setTimeout(function () {
+			$body.removeClass('is-preload');
+		}, 100);
+		textContent = $('#textContent').text();
+		textContentSub = textContent.substr(0, 100) + '...';
+		$('#textContent').text(textContentSub);
+
+		textContent2 = $('#textContent2').text();
+		textContent2Sub = textContent2.substr(0, 100) + '...';
+		$('#textContent2').text(textContent2Sub);
+	});
+
 	// ... stopped resizing.
 	var resizeTimeout;
 
@@ -369,7 +388,7 @@
 
 	$(".toggle").on("click", function () {
 
-// 0.9? 0.875?
+		// 0.9? 0.875?
 		if ($("#sidebar").hasClass("inactive")) {
 			if ($(window).width() > 1850) {
 				width = 1850 * .9;
@@ -395,27 +414,32 @@
 
 		}
 
-		$('#table').bootstrapTable({
-			columns: [
-			  { 
-				field: 'info',
-				cellStyle: function(value, row, index) {
-				  return {
-					css: {
-					  'white-space': 'pre-wrap'
-					}
-				  }
-				}
-			  }
-			]
-		  });
 		// $("#test1").height(width * rate + 20);
 		// console.log("yes");
 		// console.log(width);
 	});
 
 
+	//以下為顯示大範圍內容方法
+	$('.moreButton').on('click', function () {
+		$('#content').text(textContent);
+		$('#scrollWord').slideDown();
 
+	});
+	$('.moreButton2').on('click', function () {
+		$('#content').text(textContent2);
+		$('#scrollWord').slideDown();
+
+	});
+	$('#x').on('click', function () {
+		times = 0;
+		console.log('close');
+		$('#scrollWord').scrollTop(0);
+		$('#scrollWord').slideUp();
+		setTimeout(() => {
+			$('#content').text('');
+		}, 1000);
+	});
 
 
 
