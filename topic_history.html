@@ -190,9 +190,7 @@
 
 	<script>
 
-		// function actionFormatter(value, row, index) {
-		// 	return '<p id="textContent">' + value + '</p>' + '<button class="btn btn-secondary moreButton">顯示更多</>'
-		// }
+
 		var $table = $('#table')
 
 
@@ -213,7 +211,7 @@
 
 
 
-		$('#table').on('click', '.full-text', function () {
+		$('#full-text').on('click', function () {
 			$('#content').text(fullText);
 			$('#scrollWord').slideDown();
 
