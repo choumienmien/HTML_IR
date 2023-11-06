@@ -66,8 +66,7 @@
 								<th data-field="Topic" data-sortable="true">研究主題</th>
 								<th data-field="No" data-sortable="true">編號</th>
 								<th data-field="Name" data-sortable="true">計畫主持人</th>
-								<th data-field="Summary" data-sortable="true " data-formatter="actionFormatter"
-									data-events="actionEvents">摘要</th>
+								<th data-field="Summary" data-sortable="true " data-formatter="actionFormatter">摘要</th>
 							</tr>
 						</thead>
 					</table>
@@ -190,13 +189,9 @@
 	<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
 
 	<script>
-		var $table = $('#table')
-
-
-
 
 		function actionFormatter() {
-			return '<p id="textContent">' + value + '</p>' + '<button class="btn btn-secondary moreButton">顯示更多</>'
+			return value + '<button class="btn btn-secondary">Click</>'
 		}
 	</script>
 </body>
