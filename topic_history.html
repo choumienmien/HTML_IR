@@ -207,17 +207,17 @@
 		}
 
 		window.operateEvents = {
-			'click .full-text': function (e, value, row, index) {
-				// const fullText = $(".full-text").data("full");
-				// $('#content').text(fullText);
-				// $('#scrollWord').slideDown();
-			}
+			// 'click .full-text': function (e, value, row, index) {
+			// const fullText = $(".full-text").data("full");
+			// $('#content').text(fullText);
+			// $('#scrollWord').slideDown();
+			// }
 
 		}
 		$(".full-text").on("click", function () {
 			const fullText = $(".full-text").data("full");
-			$('#content').text(fullText);
-			$('#scrollWord').slideDown();
+			$('.ellipsis').text(fullText);
+			// $('#scrollWord').slideDown();
 		});
 
 
