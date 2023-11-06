@@ -395,11 +395,19 @@
 
 		}
 
-		$('#table').on('formatter', function(value, row, index) {
-			if(index === 1) { // 对 info 列格式化
-			  return value.replace(/\n/, '<br>');
-			}
-			return value;
+		$('#table').bootstrapTable({
+			columns: [
+			  { 
+				field: 'info',
+				cellStyle: function(value, row, index) {
+				  return {
+					css: {
+					  'white-space': 'pre-wrap'
+					}
+				  }
+				}
+			  }
+			]
 		  });
 		// $("#test1").height(width * rate + 20);
 		// console.log("yes");
