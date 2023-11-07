@@ -224,7 +224,7 @@
 			if (fullText.length > 100) {
 				ellipsisText += '...';
 				return `<span class="ellipsis">${ellipsisText}</span>
-          <a class="full-text" href="javascript:void(0)" onclick="tabletext();">查看全文</a>`;
+          <a class="full-text" href="javascript:void(0)" data-full="${fullText}" onclick="tabletext();">查看全文</a>`;
 
 			}
 
