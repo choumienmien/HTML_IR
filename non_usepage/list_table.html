@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<!--
+依照 json 檔案去讀取每一行資訊
+-->
+<html>
+
+<head>
+  <title>list_table</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body class="is-preload">
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+
+
+        <!-- Header -->
+        <header id="header">
+          <a href="index.html" class="logo"><strong>國立臺北大學 校務研究中心</strong><br>
+            CENTER FOR INSTITUTIONAL RESEARCH </a>
+          <ul class="icons">
+            <!-- <li><a href="index.html" class="icon solid fa-house-chimney"><span class="label">Homepage</span></a></li> -->
+            <li data-title="IR 辦公室 " class="title"><a href="https://www.ir.ntpu.edu.tw/"
+                class="icon solid fa-solid fa-building-columns"><span class="label">IR</span></a></li>
+            <li data-title="臺北大_Twitter" class="title"><a href="https://twitter.com/ntpu1949"
+                class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li data-title="臺北大_Facebook" class="title"><a href="https://www.facebook.com/NTPU1949"
+                class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li data-title="臺北大_Instagram" class="title"><a href="https://www.instagram.com/ntpu.edu.tw/"
+                class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+            <li data-title="臺北大_linkedin" class="title"><a
+                href="https://tw.linkedin.com/school/national-taipei-university" class="icon brands fa-linkedin"
+                target="_blank"><span class="label">linkedin</span></a></li>
+          </ul>
+        </header>
+
+        <!-- Banner -->
+        <section id="banner">
+          <div class="content">
+
+            <header>
+              <h1>Hi, I’m Editorial<br />
+                by HTML5 UP</h1>
+              <p>A free and fully responsive site template</p>
+            </header>
+            <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue.
+              Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus
+              nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit
+              nullam.</p>
+            <ul class="actions">
+              <li><a href="#" class="button big">Learn More</a></li>
+            </ul>
+
+
+            <span class="partial-text"></span>
+
+            <span class="full-text">Praesent ac adipiscing ullamcorper semper ut amet ac risus. Lorem sapien ut odio
+              odio nunc. Ac adipiscing nibh porttitor erat risus justo adipiscing adipiscing amet placerat accumsan.
+              Vis. Faucibus odio magna tempus adipiscing a non. In mi primis arcu ut non accumsan vivamus ac blandit
+              adipiscing adipiscing arcu metus praesent turpis eu ac lacinia nunc ac commodo gravida adipiscing eget
+              accumsan ac nunc adipiscing adipiscing lorem ipsum dolor sit amet nullam veroeros adipiscing.</span>
+
+            <ul class="actions">
+              <li><button id="toggle" style="margin-top: 2em;">顯示更多</button></li>
+            </ul>
+          </div>
+
+          <span class="image object">
+            <img src="images/pic10.jpg" alt="" />
+          </span>
+        </section>
+
+
+        <table>
+          <thead>
+            <tr>
+              <th>學年度</th>
+              <th data-field="Topic" data-sortable="true">研究主題</th>
+              <th data-field="No" data-sortable="true">編號</th>
+              <th data-field="Name" data-sortable="true">計畫主持人</th>
+              <th data-field="Summary" data-sortable="true " data-formatter="summaryFormatter">摘要</th>
+            </tr>
+          </thead>
+          <tbody class="tableTests">
+          </tbody>
+        </table>
+
+
+        <div id="scrollWord" style="
+        position: fixed;
+        background-color: rgba(10, 10, 10, 0.85);
+        color: rgb(235, 235, 235);
+        width: 70%;
+        height:50%;
+        top: 10%;
+        left:20%;
+        padding: 40px;
+        z-index: 2;
+        text-align:center;
+        overflow:scroll;
+        display: none;">
+
+          <p id="content2" style=" text-align:left;">
+
+          </p>
+          <button id="x">CLOSE</button>
+        </div>
+        <div class="pagination">
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <div class="inner">
+
+
+
+        <!-- Menu -->
+        <nav id="menu">
+          <header class="major">
+            <h2>Menu</h2>
+          </header>
+          <ul>
+            <li><a href="index.html">首頁</a></li>
+
+            <li><a herf="javascript:void(0);" id="link">簡介</a></li>
+            <li><a href="#">研究資料申請</a></li>
+            <li><a href="elements.html">資料庫查詢平台</a></li>
+          </ul>
+        </nav>
+
+
+
+        <!-- Section -->
+        <section>
+
+          <header class="major">
+            <h2>Get in touch</h2>
+          </header>
+          <p>國立臺北大學校務研究中心
+
+          <ul class="contact">
+            <li class="icon solid fa-phone">02-8674-1111 #66383, 66385</li>
+            <li class="icon solid fa-home">237303 新北市三峽區大學路151號<br />
+              行政大樓3樓
+            </li>
+          </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+          <p class="copyright">&copy; <a href="https://new.ntpu.edu.tw/">NATIONAL TAIPEI UNIVERSITY</a>, 2023.
+            All rights reserved. </p>
+          <p class="copyright">Website design based on the Editorial <a href="https://html5up.net">HTML5 UP</a>.Released
+            under the CCA 3.0 license.</p>
+        </footer>
+
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    let data = [];
+    let arrayData = data;
+    let stringData = "";
+
+    fetch('topic_history.json')
+      .then(response => response.json()) // 将响应转换为JSON对象
+      .then(data => {
+        // 在这里你可以使用data，它包含了JSON文件的内容
+        currentPage = 1;
+        pageStr = '<button class="before"><</button>';
+
+        page(data, currentPage, 10);
+
+        pages = Math.ceil(data.length / 10);
+        for (let i = 0; i < pages; i++) {
+          let page = i + 1;
+          pageStr += '<button class="paginats">' + page + "</button>"
+        } pageStr += '<button class="after">></button>';
+        $(".pagination").html(pageStr);
+
+        let attarP = $(".paginats");
+        $(attarP[0]).addClass("changeColor");
+        //按鈕功能
+        for (let i = 0; i < attarP.length; i++) {
+          $(attarP[i]).on("click", function () {
+            currentPage = i + 1;
+            page(data, currentPage, 10);
+            $(".changeColor").removeClass("changeColor");
+            $(attarP[i]).addClass("changeColor");
+          })
+        }
+
+        $(".before").on("click", function () {
+          if (currentPage == 1) {
+            currentPage = pages;
+          } else {
+            currentPage -= 1;
+          }
+          page(data, currentPage, 10);
+          $(".changeColor").removeClass("changeColor");
+          $(attarP[currentPage - 1]).addClass("changeColor");
+        })
+
+        $(".after").on("click", function () {
+          if (currentPage == pages) {
+            currentPage = 1;
+          } else {
+            currentPage += 1;
+          }
+          page(data, currentPage, 10);
+          $(".changeColor").removeClass("changeColor");
+          $(attarP[currentPage - 1]).addClass("changeColor");
+        })
+
+        //分頁的方法
+        function page(data, currentPage, pageNumber) {
+          stringData = "";
+          pages = Math.ceil(data.length / pageNumber);
+          let firstPagelist = 0;
+          let lastPagelist = 0;
+          if (currentPage == pages) {
+            firstPagelist = (pages - 1) * pageNumber;
+            lastPagelist = data.length;
+
+          } else {
+            firstPagelist = (currentPage - 1) * pageNumber;
+            lastPagelist = (currentPage) * pageNumber;
+          }
+
+          for (let i = firstPagelist; i < lastPagelist; i++) {
+            let eS = data[i].Summary;
+            if (eS.length > 100) {
+              eS = eS.substring(0, 100) + '... <a class="full-text" href="javascript:void(0)"  onclick="wantMore(\'' + data[i].Summary + '\')">查看全文</a>';
+            }
+            stringData = stringData + '<tr><td>' + data[i].Year + '<td><td>' + data[i].No + '<td><td>' + data[i].Name + '<td><td>' + data[i].Topic + '<td><td>' + eS + '<td></tr>'
+          };
+          $(".tableTests").html(stringData);
+
+        }
+
+      })
+      .catch(error => {
+        console.error('发生错误：', error);
+      });
+
+
+    $('#x').on('click', function () {
+      times = 0;
+      console.log('close');
+      $('#scrollWord').scrollTop(0);
+      $('#scrollWord').slideUp();
+      setTimeout(() => {
+        $('#content2').text('');
+      }, 1000);
+    });
+    //點擊內容方法
+    function wantMore(datafull) {
+      $('#content2').html(datafull);
+      $('#scrollWord').slideDown();
+    }
+
+  </script>
+
+
+
+
+</body>
+
+</html
