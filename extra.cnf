@@ -1,0 +1,6 @@
+[clientyour_name]              # alias 名稱，為 client+名稱
+host=120.126.134.8                   # DB HOST
+user=admin             # USER NAME
+password=g34552          # PASSWORD
+port=3306              # Port
+default-character-set=utf8mb4

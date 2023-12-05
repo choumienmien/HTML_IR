@@ -10,16 +10,54 @@
 		$head = $('head'),
 		$body = $('body');
 	$width = 0;
-	// 抓初始頁面的長寬比例_CMM
+	// 抓初始頁面的長寬比例_CMM，需要考慮是否有sidebar
 	rate = $("#originalpage").data("height") / $("#originalpage").data("width")
+
 	function screenSmall() {
-		if ($(window).width() > 1850) {
+		if ($(window).width() > 2300) {
 			width = 1850 * .875;
+		}
+		else if (2300 >= $(window).width() && $(window).width() > 1280) {
+			if ($("#sidebar").hasClass("inactive")) {
+				width = $(window).width() * .84;
+			} else {
+				width = ($(window).width() - $("#sidebar").width()) * .84;
+			}
 		}
 		else {
 			width = $(window).width() * .875;
+			console.log(width)
 		}
+		// if ($(window).width() >= 1680) {
+		// 	$(".fa-chevron-down").addClass("fa-chevron-down1680");
+		// 	console.log("1680");
+		// } else {
+		// 	$(".fa-chevron-down").removeClass("fa-chevron-down1680");
+		// 	console.log("1280");
+		// }
 	}
+
+	function screenSmallInactive() {
+		if ($(window).width() > 2300) {
+			width = 1850 * .875;
+		}
+		else if (2300 >= $(window).width() && $(window).width() > 1280) {
+			width = $(window).width() * .84;
+		}
+		else {
+			width = $(window).width() * .875;
+			console.log(width)
+		}
+		// if ($(window).width() >= 1680) {
+		// 	$(".fa-chevron-down").addClass("fa-chevron-down1680");
+		// 	console.log("1680");
+		// } else {
+		// 	$(".fa-chevron-down").removeClass("fa-chevron-down1680");
+		// 	console.log("1280");
+		// }
+	}
+
+
 
 	// Breakpoints.
 	breakpoints({
@@ -40,10 +78,9 @@
 		window.setTimeout(function () {
 			$body.removeClass('is-preload');
 		}, 100);
-		screenSmall()
+		screenSmall();
 		$("#originalpage").width(width);
 		$("#originalpage").height(width * rate + 20);
-		console.log("here");
 
 
 	});
@@ -81,7 +118,6 @@
 		resizeTimeout = setTimeout(function () {
 			$body.removeClass('is-resizing');
 		}, 100);
-
 	});
 
 	// Fixes.
@@ -114,15 +150,15 @@
 		$sidebar.addClass('inactive');
 	});
 
-	// // 大於 large 則 remove 「隱藏sidebar」_CMM
-	// breakpoints.on('>large', function () {
-	// 	$sidebar.removeClass('inactive');
-	// });
+	// 大於 large 則 remove 「隱藏sidebar」_CMM
+	breakpoints.on('>large', function () {
+		$sidebar.removeClass('inactive');
+	});
 
 	// 大於 large 則 remove sidebar_CMM 但因為main.css會侷限高度，所以關起來
-	breakpoints.on('>large', function () {
-		$sidebar.addClass('inactive');
-	});
+	// breakpoints.on('>large', function () {
+	// 	$sidebar.addClass('inactive');
+	// });
 
 	// Hack: Workaround for Chrome/Android scrollbar position bug.
 	if (browser.os == 'android'
@@ -278,7 +314,7 @@
 
 	// Menu.
 	var $menu = $('#menu'),
-		$menu_openers = $menu.children('ul').find('.opener');
+		$menu_openers = $menu.children('ul').find('.opener1');
 
 	// Openers.
 	$menu_openers.each(function () {
@@ -312,19 +348,6 @@
 	$('.partial-text').text(partialText).css('text-overflow', 'ellipsis');
 
 	// 控制显示隐藏
-	$('#toggle').click(function () {
-
-		$('.full-text').toggle();
-		$('.partial-text').toggle();
-
-		if ($('.full-text').is(':visible')) {
-			$(this).text('收起');
-		} else {
-			$(this).text('显示更多');
-		}
-
-	});
-
 
 	let toggleText = '显示更多';
 
@@ -344,31 +367,29 @@
 
 
 
-	// CMM 点击链接时显示对应的iframe内容-績效獎金_CMM
-	$("#link").click(function () {
-		$sidebar.addClass("inactive");
-		screenSmall();
-		// 抓iframe在google looker studio中的長寬
-		rate = 800 / 600;
-		height = width * rate;
 
-		$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + width * height + '" src="https://lookerstudio.google.com/embed/reporting/84721898-a5e2-4d5c-94b8-105067527c43/page/YJdcD" frameborder="0" style="border:0" allowfullscreen"></iframe>'
+	$(".link").each(function (index, element) {
+		$(this).on("click", function (event) {
+			event.preventDefault();
+			screenSmallInactive();
+			// 抓iframe在google looker studio中的長寬
+			let datawidth = $(this).data("width")
+			let dataheight = $(this).data("height")
+			let dataiframe = $(this).data("iframe")
+			rate = dataheight / datawidth;
+			// console.log(rate);
+			height = width * rate;
+			// console.log(height);
+			// iframeSet = dataiframe.indexOf("src");
+			// dataiframe.substr(iframeSet)
 
-		)
-	})
+			$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + height + '"src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
 
-	// CMM 点击链接时显示对应的iframe内容-YOUTUBE_CMM
-	$("#link2").click(function () {
-		$sidebar.addClass("inactive");
-		screenSmall();
-		// 抓iframe在google looker studio中的長寬
-		rate = 967 / 600;
-		height = width * rate;
+			$sidebar.addClass("inactive");
+		});
+	});
 
-		$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + width * height + '" src="https://lookerstudio.google.com/embed/reporting/fc223d5d-283b-4128-b1e4-0543fe036d59/page/JgD" frameborder="0" style="border:0" allowfullscreen"></iframe>'
 
-		)
-	})
 
 
 	// $("#test").click(function(){
@@ -381,35 +402,42 @@
 	// 根據不同的 media screen 的時候設定與長寬與iframe一樣(是針對looker.html_總覽指標)
 	$window.on('resize', function () {
 		screenSmall();
-		$("#originalpage").width(width * 1);
+		$("#originalpage").width(width);
 		$("#originalpage").height(width * rate + 20);
-		// console.log("no");
+		// // console.log("no");
+		// if ($(window).width() >= 1680) {
+		// 	$(".fa-chevron-down").addClass("fa-chevron-down1680");
+		// 	console.log("1680");
+		// } else {
+		// 	$(".fa-chevron-down").removeClass("fa-chevron-down1680");
+		// 	console.log("1280");
+		// }
 	});
 
 	$(".toggle").on("click", function () {
 
 		// 0.9? 0.875?
 		if ($("#sidebar").hasClass("inactive")) {
-			if ($(window).width() > 1850) {
-				width = 1850 * .9;
-			} else {
-				width = $(window).width() * .9;
-			}
-			$("#originalpage").width(width);
+			setTimeout(function () {
+				screenSmall();
+				$("#originalpage").width(width);
+				$("#originalpage").height(width * rate + 20);
+
+			}, 500);
+
 
 		} else {
 			if ($(window).width() > 2230) {
 				width = 1850;
-				$("#originalpage").width(width * .9);
+				$("#originalpage").width(width * .875);
 			} else if ($(window).width() > 1850) {
 				width = 1850;
 				$("#originalpage").width(width * .675);
-			} else if ($(window).width() > 1280) {
-				width = $(window).width();
-				$("#originalpage").width(width * .656);
 			} else {
-				width = $(window).width();
-				$("#originalpage").width(width * .9);
+
+				screenSmall();
+				$("#originalpage").width(width);
+				$("#originalpage").height(width * rate + 20);
 			}
 
 		}
@@ -441,6 +469,36 @@
 		}, 1000);
 	});
 
+	// 
+	function set(pre, next) {
+		$(pre).each(function () {
+			$(this).on("click", function (event) {
+				console.log("test");
+				event.stopPropagation()
+				event.preventDefault()
+				var secondLevelChildren = $(this).children(next);
+				if ($(this).children(next).hasClass("cantsee")) {
+					$(this).children(next).removeClass("cantsee");
+					$(this).addClass("fa-chevron-rotate");
+				} else {
+					$(this).children(next).addClass("cantsee");
+					$(this).removeClass("fa-chevron-rotate");
+				}
+			})
+		})
+	}
+
+	function preventBubble(object) {
+		$(object).each(function () {
+			$(this).on("click", function (event) {
+				event.stopPropagation()
+			})
+		})
+	}
+	set(".firstLayer", '.secondLayer');
+	set('.secondLayer', ".thirdLayer");
+	preventBubble(".thirdLayer");
+	preventBubble(".preventBubble");
 
 
 })(jQuery)

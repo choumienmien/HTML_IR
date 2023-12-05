@@ -3531,6 +3531,15 @@ button:disabled,
   }
 }
 
+
+
+@media screen and (min-width: 1681px) {
+  .fa-chevron-down1680:before {
+    left: 350px !important;
+  }
+}
+
+
 @media screen and (max-width: 736px) {
   #header {
     padding-top: 6.5em;
@@ -3684,8 +3693,8 @@ button:disabled,
   color: inherit;
   cursor: pointer;
   display: block;
-  font-size: 0.9em;
-  padding: 0.625em 0;
+  /* font-size: 0.9em; */
+  padding: 1.625em 0;
 }
 
 #menu ul a:hover,
@@ -3704,8 +3713,8 @@ button:disabled,
   position: relative;
 }
 
-#menu ul a.opener:before,
-#menu ul span.opener:before {
+#menu ul a.opener1:before,
+#menu ul span.opener1:before {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -3718,8 +3727,8 @@ button:disabled,
   font-weight: 900;
 }
 
-#menu ul a.opener:before,
-#menu ul span.opener:before {
+#menu ul a.opener1:before,
+#menu ul span.opener1:before {
   -moz-transition: color 0.2s ease-in-out, -moz-transform 0.2s ease-in-out;
   -webkit-transition: color 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, -ms-transform 0.2s ease-in-out;
@@ -3728,20 +3737,21 @@ button:disabled,
   content: '\f078';
   position: absolute;
   right: 0;
+
 }
 
-#menu ul a.opener:hover:before,
-#menu ul span.opener:hover:before {
+#menu ul a.opener1:hover:before,
+#menu ul span.opener1:hover:before {
   color: #f56a6a;
 }
 
-#menu ul a.opener.active+ul,
-#menu ul span.opener.active+ul {
+#menu ul a.opener1.active+ul,
+#menu ul span.opener1.active+ul {
   display: block;
 }
 
-#menu ul a.opener.active:before,
-#menu ul span.opener.active:before {
+#menu ul a.opener1.active:before,
+#menu ul span.opener1.active:before {
   -moz-transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
@@ -3783,4 +3793,58 @@ span.page-list .btn-secondary {
   background-color: transparent !important;
   border-color: transparent !important;
 
+}
+
+.posit {
+  display: inline !important;
+}
+
+.cantsee {
+  display: none;
+}
+
+.fa-chevron-down:before {
+  position: absolute;
+  left: 250px;
+  transition-duration: .5s;
+}
+
+.fa-chevron-rotate:before {
+  transform: rotate(-180deg);
+}
+
+.fa-chevron-down,
+.fa-chevron-up {
+  display: contents !important;
+  color: #7f888f !important;
+
+}
+
+
+
+.link {
+  padding-left: 1.2rem !important;
+  /* padding-bottom: 0em !important; */
+}
+
+.secondLayer {
+  color: #7f888f !important;
+}
+
+.thirdLayer {
+  color: #9fa3a6 !important;
+
+}
+
+#content {
+  text-align: center;
+}
+
+/* li {
+  padding-top: 22.815px;
+} */
+
+
+.forsecondLayer {
+  display: inline-block !important;
 }

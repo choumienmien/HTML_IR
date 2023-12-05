@@ -8,7 +8,7 @@
 	<title>DatabasePlatform-校務資訊報表平台</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="../static/assets/css/main.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 
@@ -65,7 +65,7 @@
 					<div class="posts">
 
 						<article>
-							<a href="looker_open.html" class="image"><i
+							<a href="looker_open.html" target="_blank" class="image"><i
 									class="fa-regular fa-folder-open newstyle"></i></a>
 							<div class="align-center">
 								<h3><a href="looker_open.html">校務公開資訊</a></h3>
@@ -102,16 +102,57 @@
 
 
 
-				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
 						<h2>Menu</h2>
 					</header>
+
+
+
 					<ul>
-						<!-- <li><a href="index.html">首頁</a></li>
-										<li><a href="#">資料欄位表 (資料字典)</a></li>
-										<li><a href="#">歷年研究主題</a></li> -->
-						<li><a href="DatabasePlatform.html">校務資訊報表平台</a></li>
+						<li><a href="DatabasePlatform.html" class="posit">校務資訊報表平台</a>
+							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
+								<ul class="secondLayer cantsee">
+
+									<li class="preventBubble "><a href="looker_open.html" class="preventBubble">校務公開資訊
+											<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
+												<ul class="thirdLayer cantsee">
+													<li class="preventBubble">
+														{% for item in content_open %}
+														<span class="link" data-width={{item[2]}}
+															data-height={{item[3]}} data-iframe={{item[4]}}
+															style="padding-bottom:0">
+															<p4>{{item[1]}}</p4>
+														</span>
+														{% endfor %}
+													</li>
+												</ul>
+											</i>
+										</a>
+									</li>
+
+									<li class="preventBubble"><a href="looker_campus.html"
+											class="opener posit preventBubble">校務資料平台【校內】</a>
+
+										<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
+											<ul class="thirdLayer cantsee">
+												<li class="preventBubble">
+													{% for item in content %}
+													<span class="link" data-width={{item[2]}} data-height={{item[3]}}
+														data-iframe={{item[4]}} style="padding-bottom:0">
+														<p4>{{item[1]}}</p4>
+													</span>
+													{% endfor %}
+
+												</li>
+											</ul>
+										</i>
+									</li>
+								</ul>
+							</i>
+
+
+						</li>
 
 					</ul>
 				</nav>
@@ -147,11 +188,11 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="../static/assets/js/jquery.min.js"></script>
+	<script src="../static/assets/js/browser.min.js"></script>
+	<script src="../static/assets/js/breakpoints.min.js"></script>
+	<script src="../static/assets/js/util.js"></script>
+	<script src="../static/assets/js/main.js"></script>
 
 </body>
 
