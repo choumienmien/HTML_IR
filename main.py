@@ -1,6 +1,5 @@
 # main.py
 import pymysql
-import json
 from flask import render_template,request #新增request請求(下方用到)
 from flask import Flask
 
