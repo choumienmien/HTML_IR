@@ -15,19 +15,26 @@
 
 	function screenSmall() {
 		if ($(window).width() > 2300) {
-			width = 1850 * .875;
+			width = 1900 * .9;
 		}
 		else if (2300 >= $(window).width() && $(window).width() > 1280) {
 			if ($("#sidebar").hasClass("inactive")) {
-				width = $(window).width() * .84;
+				if (2300 >= $(window).width() && $(window).width() > 1900) {
+					width = 1900 * .9;
+				}
+				else {
+					width = $(window).width() * .9;
+				}
 			} else {
 				width = ($(window).width() - $("#sidebar").width()) * .84;
+
 			}
 		}
 		else {
 			width = $(window).width() * .875;
-			console.log(width)
 		}
+		$("#originalpage").width(width);
+		$("#originalpage").height(width * rate + 20);
 		// if ($(window).width() >= 1680) {
 		// 	$(".fa-chevron-down").addClass("fa-chevron-down1680");
 		// 	console.log("1680");
@@ -36,27 +43,6 @@
 		// 	console.log("1280");
 		// }
 	}
-
-	function screenSmallInactive() {
-		if ($(window).width() > 2300) {
-			width = 1850 * .875;
-		}
-		else if (2300 >= $(window).width() && $(window).width() > 1280) {
-			width = $(window).width() * .84;
-		}
-		else {
-			width = $(window).width() * .875;
-			console.log(width)
-		}
-		// if ($(window).width() >= 1680) {
-		// 	$(".fa-chevron-down").addClass("fa-chevron-down1680");
-		// 	console.log("1680");
-		// } else {
-		// 	$(".fa-chevron-down").removeClass("fa-chevron-down1680");
-		// 	console.log("1280");
-		// }
-	}
-
 
 
 	// Breakpoints.
@@ -79,10 +65,6 @@
 			$body.removeClass('is-preload');
 		}, 100);
 		screenSmall();
-		$("#originalpage").width(width);
-		$("#originalpage").height(width * rate + 20);
-
-
 	});
 
 	//CMM_顯示更多
@@ -237,8 +219,6 @@
 		// Deactivate.
 		$sidebar.addClass('inactive');
 		screenSmall();
-		$("#originalpage").width(width);
-		$("#originalpage").height(width * rate + 20);
 	});
 
 	// Scroll lock.
@@ -371,7 +351,9 @@
 	$(".link").each(function (index, element) {
 		$(this).on("click", function (event) {
 			event.preventDefault();
-			screenSmallInactive();
+			$sidebar.addClass("inactive");
+			setTimeout(screenSmall(), 250)
+
 			// 抓iframe在google looker studio中的長寬
 			let datawidth = $(this).data("width")
 			let dataheight = $(this).data("height")
@@ -382,10 +364,15 @@
 			// console.log(height);
 			// iframeSet = dataiframe.indexOf("src");
 			// dataiframe.substr(iframeSet)
-
-			$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + height + '"src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
-
-			$sidebar.addClass("inactive");
+			if ($(window).width() > 1280) {
+				$("#content").html('<iframe id="originalpage" src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
+				setTimeout(() => {
+					$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + height + '"src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
+				}, 300);
+				console.log("just")
+			} else {
+				$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + height + '"src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
+			}
 		});
 	});
 
@@ -402,8 +389,6 @@
 	// 根據不同的 media screen 的時候設定與長寬與iframe一樣(是針對looker.html_總覽指標)
 	$window.on('resize', function () {
 		screenSmall();
-		$("#originalpage").width(width);
-		$("#originalpage").height(width * rate + 20);
 		// // console.log("no");
 		// if ($(window).width() >= 1680) {
 		// 	$(".fa-chevron-down").addClass("fa-chevron-down1680");
@@ -415,36 +400,13 @@
 	});
 
 	$(".toggle").on("click", function () {
-
-		// 0.9? 0.875?
 		if ($("#sidebar").hasClass("inactive")) {
 			setTimeout(function () {
 				screenSmall();
-				$("#originalpage").width(width);
-				$("#originalpage").height(width * rate + 20);
-
 			}, 500);
-
-
 		} else {
-			if ($(window).width() > 2230) {
-				width = 1850;
-				$("#originalpage").width(width * .875);
-			} else if ($(window).width() > 1850) {
-				width = 1850;
-				$("#originalpage").width(width * .675);
-			} else {
-
-				screenSmall();
-				$("#originalpage").width(width);
-				$("#originalpage").height(width * rate + 20);
-			}
-
+			screenSmall();
 		}
-
-		// $("#test1").height(width * rate + 20);
-		// console.log("yes");
-		// console.log(width);
 	});
 
 

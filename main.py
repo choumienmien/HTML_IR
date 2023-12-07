@@ -72,4 +72,8 @@ def page_open():
 
 
 if __name__ == "__main__":
-    app.run()
+    # https://www.youtube.com/watch?v=AiUzsr5JZgQ
+    # from gevent import pywsgi
+    # server = pywsgi.WSGIServer(('0.0.0.0',5000),app)
+    # server.serve_forever()
+    app.run('0.0.0.0',debug=True)
