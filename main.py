@@ -1,12 +1,14 @@
 # main.py
+import os
+
 import pymysql
 from flask import render_template,request #新增request請求(下方用到)
 from flask import Flask
 
 
-
 app = Flask(__name__)
-
+env_config = os.getenv( "PROD_APP_SETTINGS" , "config.DevelopmentConfig" )
+app.config.from_object(env_config)
 
 conn = pymysql.connect(
     host='120.126.134.8',
