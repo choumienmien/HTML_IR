@@ -491,7 +491,7 @@
 			})
 		})
 	}
-
+	// 禁止泡沫產生
 	function preventBubble(object) {
 		$(object).each(function () {
 			$(this).on("click", function (event) {

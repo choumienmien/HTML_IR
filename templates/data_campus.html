@@ -82,8 +82,8 @@
 					<ul>
 						<li><a href="IR_public.html" class="posit">校務資訊報表平台</a>
 							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
-								<ul class="secondLayer cantsee">
-
+								<ul class="secondLayer">
+									<!-- 每一頁的 layer 中 class=cantsee 並沒有都放 -->
 									<li class="preventBubble "><a href="data_open.html" class="preventBubble">公開資訊
 											<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
 												<ul class="thirdLayer cantsee">
@@ -109,7 +109,7 @@
 											class="opener posit preventBubble">校務資訊</a>
 
 										<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
-											<ul class="thirdLayer cantsee">
+											<ul class="thirdLayer ">
 												<li class="preventBubble">
 
 													{% for item in range(0,content_campus | length) %}
