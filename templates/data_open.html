@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>looker_open</title>
+	<title>公開資訊</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../static/assets/css/main.css" />
@@ -22,8 +22,8 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="DatabasePlatform.html" class="logo"><strong>國立臺北大學 校務研究中心</strong><br>
-						CENTER FOR INSTITUTIONAL RESEARCH </a>
+					<a href="IR_public.html" class="logo"><strong>國立臺北大學 校務研究中心</strong><br>
+						NTPU CENTER FOR INSTITUTIONAL RESEARCH </a>
 					<ul class="icons">
 						<li data-title="IR 辦公室" class="title title2"><a href="https://www.ir.ntpu.edu.tw/"
 								class="icon solid fa-solid fa-building-columns" target="_blank"></a></li>
@@ -69,25 +69,28 @@
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
-						<h2>Menu</h2>
+						<h2>選單</h2>
 					</header>
 
 
 
 					<ul>
-						<li><a href="DatabasePlatform.html" class="posit">校務資訊報表平台</a>
+						<li><a href="IR_public.html" class="posit">校務資訊報表平台</a>
 							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
 								<ul class="secondLayer cantsee">
 
-									<li class="preventBubble "><a href="looker_open.html" class="preventBubble">校務公開資訊
+									<li class="preventBubble "><a href="data_open.html" class="preventBubble">公開資訊
 											<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
 												<ul class="thirdLayer cantsee">
 													<li class="preventBubble">
-														{% for item in content_open %}
-														<span class="link" data-width={{item[2]}}
-															data-height={{item[3]}} data-iframe={{item[4]}}
+														{% for item in range(0,content_open | length) %}
+														<span class="link content_open"
+															data-width={{content_open[item][2]}}
+															data-height={{content_open[item][3]}}
+															data-iframe={{content_open[item][4]}}
+															data-type={{content_open[item][5]}} data-page={{item}}
 															style="padding-bottom:0">
-															<p4>{{item[1]}}</p4>
+															<p4>{{content_open[item][1]}}</p4>
 														</span>
 														{% endfor %}
 													</li>
@@ -96,19 +99,22 @@
 										</a>
 									</li>
 
-									<li class="preventBubble"><a href="looker_campus.html"
-											class="opener posit preventBubble">校務資料平台【校內】</a>
+									<li class="preventBubble"><a href="data_campus.html"
+											class="opener posit preventBubble">校務資訊</a>
 
 										<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
-											<ul class="thirdLayer cantsee">
+											<ul class="thirdLayer cantsee ">
 												<li class="preventBubble">
-													{% for item in content %}
-													<span class="link" data-width={{item[2]}} data-height={{item[3]}}
-														data-iframe={{item[4]}} style="padding-bottom:0">
-														<p4>{{item[1]}}</p4>
+													{% for item in range(0,content_campus | length) %}
+													<span class="link content_campus"
+														data-width={{content_campus[item][2]}}
+														data-height={{content_campus[item][3]}}
+														data-iframe={{content_campus[item][4]}}
+														data-type={{content_campus[item][5]}} data-page={{item}}
+														style="padding-bottom:0">
+														<p4>{{content_campus[item][1]}}</p4>
 													</span>
 													{% endfor %}
-
 												</li>
 											</ul>
 										</i>
@@ -126,7 +132,7 @@
 				<!-- Section -->
 				<section>
 					<header class="major">
-						<h2>Get in touch</h2>
+						<h2>聯絡資訊</h2>
 					</header>
 					<p>國立臺北大學校務研究中心
 
@@ -142,8 +148,7 @@
 				<footer id="footer">
 					<p class="copyright">&copy; <a href="https://new.ntpu.edu.tw/">NATIONAL TAIPEI UNIVERSITY</a>, 2023.
 						All rights reserved. </p>
-					<p class="copyright">Website design based on the Editorial <a href="https://html5up.net">HTML5
-							UP</a>.Released under the CCA 3.0 license.</p>
+					<p class="copyright">Website design based on the Editorial. Released under the CCA 3.0 license.</p>
 				</footer>
 
 			</div>

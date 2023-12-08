@@ -9,9 +9,26 @@
 	var $window = $(window),
 		$head = $('head'),
 		$body = $('body');
-	$width = 0;
+	var currentUrl = window.location.href;
+	width = 0;
 	// 抓初始頁面的長寬比例_CMM，需要考慮是否有sidebar
 	rate = $("#originalpage").data("height") / $("#originalpage").data("width")
+
+	$(document).ready(function () {
+		// 如果有當前currentUrl 中有含 #，則進行第2個判斷式 
+		if (currentUrl.lastIndexOf("#") != -1) {
+			// $sidebar.addClass("inactive");
+			screenSmall();
+			if (currentUrl.indexOf("campus") != -1) {
+				// [currentUrl[currentUrl.lastIndexOf("#") + 1]]
+				countIfram($($(".content_campus")[currentUrl[currentUrl.lastIndexOf("#") + 1]]), width);
+
+			} else {
+				countIfram($($(".content_open")[currentUrl[currentUrl.lastIndexOf("#") + 1]]), width);
+			}
+			history.pushState({}, '', currentUrl.substring(0, currentUrl.lastIndexOf("#")));
+		}
+	});
 
 	function screenSmall() {
 		if ($(window).width() > 2300) {
@@ -351,32 +368,57 @@
 	$(".link").each(function (index, element) {
 		$(this).on("click", function (event) {
 			event.preventDefault();
-			$sidebar.addClass("inactive");
-			setTimeout(screenSmall(), 250)
+			//判斷所在頁面目前區域藉由data-type
+			locationHtml = $(this).data("type")
+			console.log(locationHtml)
+			// indexOf() 方法来查找字符串中是否包含给定的数据类型
+			// currentUrl 這個URL當中是否有與locationHtml中的data-type 一樣，-1代表不一樣
+			if (currentUrl.indexOf($(this).data("type")) == -1) {
+				if (currentUrl.indexOf("IR_public" == -1)) {
+					hrefname = currentUrl.substring(0, currentUrl.lastIndexOf("data_")) + locationHtml + ".html#" + $(this).data("page");
+					// $sidebar.addClass("inactive");
+					setTimeout(() => {
+						window.location.href = hrefname;
+					}, 100);
 
-			// 抓iframe在google looker studio中的長寬
-			let datawidth = $(this).data("width")
-			let dataheight = $(this).data("height")
-			let dataiframe = $(this).data("iframe")
-			rate = dataheight / datawidth;
-			// console.log(rate);
-			height = width * rate;
-			// console.log(height);
-			// iframeSet = dataiframe.indexOf("src");
-			// dataiframe.substr(iframeSet)
-			if ($(window).width() > 1280) {
-				$("#content").html('<iframe id="originalpage" src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
-				setTimeout(() => {
-					$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + height + '"src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
-				}, 300);
-				console.log("just")
+				} else {
+					hrefname = currentUrl.substring(0, currentUrl.lastIndexOf("IR_public")) + "data_" + locationHtml + ".html#" + $(this).data("page");
+					// $sidebar.addClass("inactive");
+					setTimeout(() => {
+						window.location.href = hrefname;
+					}, 100);
+				}
 			} else {
-				$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + height + '"src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
+
+				$sidebar.addClass("inactive");
+				setTimeout(screenSmall(), 250)
+				// 抓iframe在google looker studio中的長寬
+				countIfram($(this), width);
+
 			}
 		});
 	});
 
-
+	function countIfram(thislink, width) {
+		let datawidth = thislink.data("width")
+		let dataheight = thislink.data("height")
+		let dataiframe = thislink.data("iframe")
+		rate = dataheight / datawidth;
+		// console.log(rate);
+		height = width * rate;
+		// console.log(height);
+		// iframeSet = dataiframe.indexOf("src");
+		// dataiframe.substr(iframeSet)
+		if ($(window).width() > 1280) {
+			$("#content").html('<iframe id="originalpage" src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
+			setTimeout(() => {
+				$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + height + '"src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
+			}, 300);
+			console.log("just")
+		} else {
+			$("#content").html('<iframe id="originalpage" width="' + width + '" height="' + height + '"src="' + dataiframe + '"frameborder="0" style="border:0" allowfullscreen></iframe>')
+		}
+	}
 
 
 	// $("#test").click(function(){

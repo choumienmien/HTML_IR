@@ -1,13 +1,16 @@
 <!DOCTYPE HTML>
+<!--
 
+-->
 <html>
 
 <head>
-	<title>looker_campus</title>
+	<title>校務資訊報表平台</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../static/assets/css/main.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 
 </head>
 
@@ -22,8 +25,8 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="DatabasePlatform.html" class="logo"><strong>國立臺北大學 校務研究中心</strong><br>
-						CENTER FOR INSTITUTIONAL RESEARCH </a>
+					<a href="IR_public.html" class="logo"><strong>國立臺北大學 校務研究中心</strong><br>
+						NTPU CENTER FOR INSTITUTIONAL RESEARCH </a>
 					<ul class="icons">
 						<li data-title="IR 辦公室" class="title title2"><a href="https://www.ir.ntpu.edu.tw/"
 								class="icon solid fa-solid fa-building-columns" target="_blank"></a></li>
@@ -44,24 +47,51 @@
 					</ul>
 				</header>
 
+				<!-- Content -->
+				<section>
+					<header class="main">
+						<h1>校務資訊報表平台</h1>
+					</header>
 
-				<!-- Section -->
+					<!-- Content -->
+
+					<p style="z-index: 2">
+						報表系統平台整合學校內部的各類資料，通過報表呈現學生、教師、課程等方面的概況，以及行政運作的統計信息。
+
+						平台設置了不同的使用角色和權限，產出的報表內容豐富多元，既有視覺化的圖表，也有可供匯出的數據表格。有助於學校決策部門全面了解學校運作動態，依據報表信息不斷完善和改進校務。
+					</p>
 
 
-				<section id="content">
+					<div class="posts">
+
+						<article>
+							<a href="data_open.html" target="_blank" class="image"><i
+									class="fa-regular fa-folder-open newstyle"></i></a>
+							<div class="align-center">
+								<h3><a href="data_open.html">公開資訊</a></h3>
+							</div>
+							<div class="align-center">
+								<p>使用「大專校院校務資訊公開平臺」</p>
+							</div>
+
+						</article>
 
 
-					<!--要注意 id, data-width, data-height -->
 
-					<!-- default 初始畫面選擇抓取到的第一個數值 -->
-					<iframe id="originalpage" data-width="{{ content.0.2 }}" data-height="{{ content.0.3 }}"
-						src="{{ content.0.4 }}" frameborder="0" style="border:0" allowfullscreen>
-					</iframe>
+						<article>
+							<a href="data_campus.html" target="_blank" class="image"><i
+									class="fa-solid fa-database newstyle"></i></a>
+							<div class="align-center">
+								<h3>校務資訊</h3>
+							</div>
+							<div class="align-center">
+								<p>請用<b>臺北大學教職員帳號</b>登入使用</p>
+							</div>
+						</article>
 
+					</div>
 
 				</section>
-
-
 
 			</div>
 		</div>
@@ -70,28 +100,32 @@
 		<div id="sidebar">
 			<div class="inner">
 
-				<!-- Menu -->
+
+
 				<nav id="menu">
 					<header class="major">
-						<h2>Menu</h2>
+						<h2>選單</h2>
 					</header>
 
 
 
 					<ul>
-						<li><a href="DatabasePlatform.html" class="posit">校務資訊報表平台</a>
+						<li><a href="IR_public.html" class="posit">校務資訊報表平台</a>
 							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
 								<ul class="secondLayer cantsee">
 
-									<li class="preventBubble "><a href="looker_open.html" class="preventBubble">校務公開資訊
+									<li class="preventBubble "><a href="data_open.html" class="preventBubble">公開資訊
 											<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
 												<ul class="thirdLayer cantsee">
 													<li class="preventBubble">
-														{% for item in content_open %}
-														<span class="link" data-width={{item[2]}}
-															data-height={{item[3]}} data-iframe={{item[4]}}
+														{% for item in range(0,content_open | length) %}
+														<span class="link content_open"
+															data-width={{content_open[item][2]}}
+															data-height={{content_open[item][3]}}
+															data-iframe={{content_open[item][4]}}
+															data-type={{content_open[item][5]}} data-page={{item}}
 															style="padding-bottom:0">
-															<p4>{{item[1]}}</p4>
+															<p4>{{content_open[item][1]}}</p4>
 														</span>
 														{% endfor %}
 													</li>
@@ -100,19 +134,22 @@
 										</a>
 									</li>
 
-									<li class="preventBubble"><a href="looker_campus.html"
-											class="opener posit preventBubble">校務資料平台【校內】</a>
+									<li class="preventBubble"><a href="data_campus.html"
+											class="opener posit preventBubble">校務資訊</a>
 
 										<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
 											<ul class="thirdLayer cantsee">
 												<li class="preventBubble">
-													{% for item in content %}
-													<span class="link" data-width={{item[2]}} data-height={{item[3]}}
-														data-iframe={{item[4]}} style="padding-bottom:0">
-														<p4>{{item[1]}}</p4>
+													{% for item in range(0,content_campus | length) %}
+													<span class="link content_campus"
+														data-width={{content_campus[item][2]}}
+														data-height={{content_campus[item][3]}}
+														data-iframe={{content_campus[item][4]}}
+														data-type={{content_campus[item][5]}} data-page={{item}}
+														style="padding-bottom:0">
+														<p4>{{content_campus[item][1]}}</p4>
 													</span>
 													{% endfor %}
-
 												</li>
 											</ul>
 										</i>
@@ -131,7 +168,7 @@
 				<!-- Section -->
 				<section>
 					<header class="major">
-						<h2>Get in touch</h2>
+						<h2>聯絡資訊</h2>
 					</header>
 					<p>國立臺北大學校務研究中心
 
@@ -147,8 +184,7 @@
 				<footer id="footer">
 					<p class="copyright">&copy; <a href="https://new.ntpu.edu.tw/">NATIONAL TAIPEI UNIVERSITY</a>, 2023.
 						All rights reserved. </p>
-					<p class="copyright">Website design based on the Editorial <a href="https://html5up.net">HTML5
-							UP</a>.Released under the CCA 3.0 license.</p>
+					<p class="copyright">Website design based on the Editorial. Released under the CCA 3.0 license.</p>
 				</footer>
 
 			</div>
@@ -156,14 +192,12 @@
 
 	</div>
 
-
 	<!-- Scripts -->
 	<script src="../static/assets/js/jquery.min.js"></script>
 	<script src="../static/assets/js/browser.min.js"></script>
 	<script src="../static/assets/js/breakpoints.min.js"></script>
 	<script src="../static/assets/js/util.js"></script>
 	<script src="../static/assets/js/main.js"></script>
-
 
 </body>
 

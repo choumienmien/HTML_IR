@@ -20,29 +20,29 @@ conn = pymysql.connect(
 
 )
 
-@app.route('/DatabasePlatform.html')
+@app.route('/IR_public.html')
 def index():
     cur = conn.cursor()
 
-    sql = "select * from iframe where page_type='campus'"
+    sql = "select * from iframe where page_type='data_campus'"
     cur.execute(sql)
-    content = cur.fetchall()
+    content_campus = cur.fetchall()
 
-    sql2="select * from iframe where page_type='open'"
+    sql2="select * from iframe where page_type='data_open'"
     cur.execute(sql2)
     content_open=cur.fetchall()
-    return render_template('DatabasePlatform.html',content=content,content_open=content_open)
+    return render_template('IR_public.html',content_campus=content_campus,content_open=content_open)
 
 
-@app.route('/looker_campus.html')
+@app.route('/data_campus.html')
 def page_compus():
     cur = conn.cursor()
 
-    sql = "select * from iframe where page_type='campus'"
+    sql = "select * from iframe where page_type='data_campus'"
     cur.execute(sql)
-    content = cur.fetchall()
+    content_campus = cur.fetchall()
 
-    sql2="select * from iframe where page_type='open'"
+    sql2="select * from iframe where page_type='data_open'"
     cur.execute(sql2)
     content_open=cur.fetchall()
 
@@ -51,24 +51,24 @@ def page_compus():
     #     result.append(dict(zip([column[0] for column in cur.description],row)))
     #     json_data=json.dumps(result)
     # json_data1 = json_data.encode('utf-8').decode('unicode_escape')
-    # print(json_data1)
+    # print(content)
 
-    return render_template('looker_campus.html',content=content,content_open=content_open)
+    return render_template('data_campus.html',content_campus=content_campus,content_open=content_open)
 
 
 
-@app.route('/looker_open.html')
+@app.route('/data_open.html')
 def page_open():
     cur = conn.cursor()
 
-    sql = "select * from iframe where page_type='campus'"
+    sql = "select * from iframe where page_type='data_campus'"
     cur.execute(sql)
-    content = cur.fetchall()
+    content_campus = cur.fetchall()
 
-    sql2="select * from iframe where page_type='open'"
+    sql2="select * from iframe where page_type='data_open'"
     cur.execute(sql2)
     content_open=cur.fetchall()
-    return render_template('looker_open.html',content=content,content_open=content_open)
+    return render_template('data_open.html',content_campus=content_campus,content_open=content_open)
 
 
 
