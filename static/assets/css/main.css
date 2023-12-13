@@ -233,10 +233,11 @@ body.is-resizing *:after {
 
 .title1:hover::after {
   left: -8px;
+  left: -30px;
 }
 
 .title2:hover::after {
-  top: 24px;
+  top: 25px;
   left: -22px;
 }
 
@@ -3204,7 +3205,7 @@ button:disabled,
 }
 
 #main>.inner>section {
-  padding: 6em 0 4em 0;
+  padding: 3em 0 4em 0;
   border-top: solid 2px rgba(210, 215, 217, 0.75);
 }
 
@@ -3423,7 +3424,7 @@ button:disabled,
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 980px) {
   #sidebar {
     box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175);
     height: 100%;
@@ -3502,7 +3503,7 @@ button:disabled,
   display: -ms-flex;
   display: flex;
   border-bottom: solid 5px #f56a6a;
-  padding: 6em 0 1em 0;
+  padding: 2em 0 1em 0;
   position: relative;
 }
 

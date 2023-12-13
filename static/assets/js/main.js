@@ -34,7 +34,7 @@
 		if ($(window).width() > 2300) {
 			width = 1900 * .9;
 		}
-		else if (2300 >= $(window).width() && $(window).width() > 1280) {
+		else if (2300 >= $(window).width() && $(window).width() > 980) {
 			if ($("#sidebar").hasClass("inactive")) {
 				if (2300 >= $(window).width() && $(window).width() > 1900) {
 					width = 1900 * .9;
@@ -145,12 +145,12 @@
 		$sidebar_inner = $sidebar.children('.inner');
 
 	// Inactive by default on <= large.
-	breakpoints.on('<=large', function () {
+	breakpoints.on('<large', function () {
 		$sidebar.addClass('inactive');
 	});
 
 	// 大於 large 則 remove 「隱藏sidebar」_CMM
-	breakpoints.on('>large', function () {
+	breakpoints.on('>=large', function () {
 		$sidebar.removeClass('inactive');
 	});
 
@@ -184,7 +184,7 @@
 	$sidebar.on('click', 'a', function (event) {
 
 		// >large? Bail.
-		if (breakpoints.active('>large'))
+		if (breakpoints.active('>=large'))
 			return;
 
 		// Vars.
@@ -372,7 +372,7 @@
 			locationHtml = $(this).data("type")
 			console.log(locationHtml)
 			// indexOf() 方法来查找字符串中是否包含给定的数据类型
-			// currentUrl 這個URL當中是否有與locationHtml中的data-type 一樣，-1代表不一樣
+			// currentUrl 這個URL當中是否有與locationHtml中的data-type 一樣，==-1代表不一樣
 			if (currentUrl.indexOf($(this).data("type")) == -1) {
 				if (currentUrl.indexOf("IR_public" == -1)) {
 					hrefname = currentUrl.substring(0, currentUrl.lastIndexOf("data_")) + locationHtml + ".html#" + $(this).data("page");
