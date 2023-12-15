@@ -55,6 +55,7 @@
 		$("#originalpage").width(width);
 		$("#originalpage").height(width * rate + 20);
 		$(window).height(width * rate + 100)
+		$(".inner").height(width * rate + 100);
 		console.log($(window).height())
 		// if ($(window).width() >= 1680) {
 		// 	$(".fa-chevron-down").addClass("fa-chevron-down1680");
@@ -86,6 +87,7 @@
 			$body.removeClass('is-preload');
 		}, 100);
 		screenSmall();
+
 	});
 
 	//CMM_顯示更多
