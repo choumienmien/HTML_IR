@@ -32,7 +32,6 @@
 
 	function screenSmall() {
 		console.log("我是測試")
-		console.log($(window).height())
 		if ($(window).width() > 2300) {
 			width = 1900 * .9;
 		}
@@ -54,8 +53,9 @@
 		}
 		$("#originalpage").width(width);
 		$("#originalpage").height(width * rate + 20);
-		$(window).height(width * rate + 100)
-		$(".inner").height(width * rate + 100);
+		$(document).height(width * rate + 100)
+		$("#sidebar").height($(document).height());
+		$(".inner").height($(window).height());
 		console.log($(window).height())
 		// if ($(window).width() >= 1680) {
 		// 	$(".fa-chevron-down").addClass("fa-chevron-down1680");
