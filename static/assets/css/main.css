@@ -3303,6 +3303,7 @@ button:disabled,
   font-size: 0.9em;
   position: relative;
   width: 26em;
+  padding-bottom: 20px;
 }
 
 #sidebar h2 {
@@ -3862,4 +3863,10 @@ span.page-list .btn-secondary {
 
 .forsecondLayer {
   display: inline-block !important;
+}
+
+.font_style {
+  font-weight: 700;
+  font-size: 13px;
+  color: #807979;
 }
