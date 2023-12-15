@@ -483,6 +483,7 @@ hr {
 
 hr.major {
   margin: 3em 0;
+
 }
 
 .align-left {
@@ -1970,6 +1971,10 @@ header p {
   text-transform: uppercase;
 }
 
+header.major {
+  margin-top: 2em;
+}
+
 header.major> :last-child {
   border-bottom: solid 3px #f56a6a;
   display: inline-block;
@@ -3229,7 +3234,7 @@ button:disabled,
   }
 
   #main>.inner>section {
-    padding: 4em 0 2em 0;
+    padding: 4em 0 0 0;
   }
 }
 
@@ -3303,7 +3308,7 @@ button:disabled,
   font-size: 0.9em;
   position: relative;
   width: 26em;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
 }
 
 #sidebar h2 {
@@ -3311,7 +3316,7 @@ button:disabled,
 }
 
 #sidebar>.inner {
-  padding: 2.22222em 2.22222em 2.44444em 2.22222em;
+  padding: 0 2.22222em 0 2.22222em;
   position: relative;
   width: 26em;
   overflow: scroll;
@@ -3404,7 +3409,7 @@ button:disabled,
   }
 
   #sidebar>.inner {
-    padding: 1.66667em 1.66667em 1.33333em 1.66667em;
+    padding: 0 1.66667em 0 1.66667em;
     width: 24em;
   }
 

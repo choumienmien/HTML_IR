@@ -31,7 +31,7 @@
 	});
 
 	function screenSmall() {
-		console.log("我是測試")
+		console.log("我是測試" + rate)
 		if ($(window).width() > 2300) {
 			width = 1900 * .9;
 		}
@@ -54,6 +54,7 @@
 		$("#originalpage").width(width);
 		$("#originalpage").height(width * rate);
 		// $(document).height(width * rate + 100)
+		console.log($(document).height());
 		$("#sidebar").height($(document).height());
 		$(".inner").height($(window).height());
 		console.log($(window).height())
