@@ -32,6 +32,7 @@
 
 	function screenSmall() {
 		console.log("我是測試")
+		console.log($(window).height())
 		if ($(window).width() > 2300) {
 			width = 1900 * .9;
 		}
