@@ -27,7 +27,7 @@
 				<header id="header">
 					<a href="IR_public.html" class="logo"><strong>國立臺北大學 研究發展處 校務研究中心</strong>
 						<p style="letter-spacing: normal;margin-top:0em;margin: 0;">
-							NTPU Office of Research and Development, CENTER FOR INSTITUTIONAL RESEARCH </p>
+							CENTER FOR INSTITUTIONAL RESEARCH, Office of Research and Development NTPU </p>
 					</a>
 					<ul class="icons">
 						<li data-title="IR 辦公室" class="title title2"><a href="https://www.ir.ntpu.edu.tw/"
@@ -58,9 +58,8 @@
 					<!-- Content -->
 
 					<p style="z-index: 2">
-						報表平台整合學校內部的各類資料，通過報表呈現學生、教師、課程等方面的概況，以及行政運作的統計信息。
-
-						平台設置了不同的使用角色和權限，產出的報表內容豐富多元，既有視覺化的圖表，也有可供匯出的數據表格。有助於學校決策部門全面了解學校運作動態，依據報表信息不斷完善和改進校務。
+						「校務研究資訊平臺」整合學校內部的各類資料，並設置角色權限，根據不同使用者的工作職責來訪問相關資料。平臺運用資訊技術，通過互動式的統計圖表呈現資料，包括圓形圖(Pie
+						Chart)、直方圖(Histogram)、折線圖(Line Chart)等形式展示學生、教師、課程等多個關鍵教育主題的動態概況，以及學校行政運營情況的統計資料。
 					</p>
 
 
@@ -84,7 +83,7 @@
 							<a href="data_campus.html" target="_blank" class="image"><i
 									class="fa-solid fa-database newstyle"></i></a>
 							<div class="align-center">
-								<h3>校務資訊</h3>
+								<h3>專案資訊（限校內主管使用）</h3>
 							</div>
 							<div class="align-center">
 								<p>請用<b>臺北大學教職員帳號</b>登入使用</p>
@@ -106,61 +105,58 @@
 
 				<nav id="menu">
 					<header class="major">
-						<h2>選單</h2>
+						<h2>校務研究資訊平臺</h2>
 					</header>
 
 
 
 					<ul>
-						<li><a href="IR_public.html" class="posit">校務研究資訊平臺</a>
+						<!-- <li><a href="IR_public.html" class="posit">首頁</a>
+							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680"> -->
+						<!-- 每一頁的 layer 中 class=cantsee 並沒有都放 -->
+						<!-- <ul class="firstLayer"> -->
+						<li class="preventBubble"><a href="data_open.html" class="preventBubble posit">公開資訊</a>
 							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
-								<!-- 每一頁的 layer 中 class=cantsee 並沒有都放 -->
-								<ul class="secondLayer">
-									<li class="preventBubble "><a href="data_open.html" class="preventBubble">公開資訊
-											<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
-												<ul class="thirdLayer cantsee">
-													<li class="preventBubble">
-														{% for item in range(0,content_open | length) %}
-														<span class="link content_open"
-															data-width={{content_open[item][2]}}
-															data-height={{content_open[item][3]}}
-															data-iframe={{content_open[item][4]}}
-															data-type={{content_open[item][5]}} data-page={{item}}
-															style="padding-bottom:0">
-															<p4>{{content_open[item][1]}}</p4>
-														</span>
-														{% endfor %}
-													</li>
-												</ul>
-											</i>
-										</a>
-									</li>
-
-									<li class="preventBubble"><a href="data_campus.html"
-											class="opener posit preventBubble">校務資訊</a>
-
-										<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
-											<ul class="thirdLayer cantsee">
-												<li class="preventBubble">
-													{% for item in range(0,content_campus | length) %}
-													<span class="link content_campus"
-														data-width={{content_campus[item][2]}}
-														data-height={{content_campus[item][3]}}
-														data-iframe={{content_campus[item][4]}}
-														data-type={{content_campus[item][5]}} data-page={{item}}
-														style="padding-bottom:0">
-														<p4>{{content_campus[item][1]}}</p4>
-													</span>
-													{% endfor %}
-												</li>
-											</ul>
-										</i>
+								<ul class="secondLayer cantsee">
+									<li class="preventBubble">
+										{% for item in range(0,content_open | length) %}
+										<span class="link content_open" data-width={{content_open[item][2]}}
+											data-height={{content_open[item][3]}} data-iframe={{content_open[item][4]}}
+											data-type={{content_open[item][5]}} data-page={{item}}
+											style="padding-bottom:0">
+											<p4>{{content_open[item][1]}}</p4>
+										</span>
+										{% endfor %}
 									</li>
 								</ul>
 							</i>
-
-
+							<!-- </a> -->
 						</li>
+
+						<li class="preventBubble"><a href="data_campus.html"
+								class="opener posit preventBubble">專案資訊（限校內主管使用）</a>
+
+							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
+								<ul class="secondLayer cantsee">
+									<li class="preventBubble">
+										{% for item in range(0,content_campus | length) %}
+										<span class="link content_campus" data-width={{content_campus[item][2]}}
+											data-height={{content_campus[item][3]}}
+											data-iframe={{content_campus[item][4]}}
+											data-type={{content_campus[item][5]}} data-page={{item}}
+											style="padding-bottom:0">
+											<p4>{{content_campus[item][1]}}</p4>
+										</span>
+										{% endfor %}
+									</li>
+								</ul>
+							</i>
+						</li>
+						<!-- </ul>
+					</i>
+
+
+						</li> -->
 
 					</ul>
 				</nav>

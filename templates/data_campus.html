@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>校務資訊</title>
+	<title>專案資訊（限校內主管使用）</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../static/assets/css/main.css" />
@@ -24,7 +24,7 @@
 				<header id="header">
 					<a href="IR_public.html" class="logo"><strong>國立臺北大學 研究發展處 校務研究中心</strong>
 						<p style="letter-spacing: normal;margin-top:0em;margin: 0;">
-							NTPU Office of Research and Development, CENTER FOR INSTITUTIONAL RESEARCH </p>
+							CENTER FOR INSTITUTIONAL RESEARCH, Office of Research and Development NTPU </p>
 					</a>
 					<ul class="icons">
 						<li data-title="IR 辦公室" class="title title2"><a href="https://www.ir.ntpu.edu.tw/"
@@ -76,64 +76,61 @@
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
-						<h2>選單</h2>
+						<h2>校務研究資訊平臺</h2>
 					</header>
 
 
 
 					<ul>
-						<li><a href="IR_public.html" class="posit">校務研究資訊平臺</a>
+						<!-- <li><a href="IR_public.html" class="posit">首頁</a>
 							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
-								<ul class="secondLayer">
-									<!-- 每一頁的 layer 中 class=cantsee 並沒有都放 -->
-									<li class="preventBubble "><a href="data_open.html" class="preventBubble">公開資訊
-											<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
-												<ul class="thirdLayer cantsee">
-													<li class="preventBubble">
+								<ul class="secondLayer"> -->
+						<!-- 每一頁的 layer 中 class=cantsee 並沒有都放 -->
+						<li class="preventBubble "><a href="data_open.html" class="preventBubble posit">公開資訊</a>
+							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
+								<ul class="secondLayer cantsee">
+									<li class="preventBubble">
 
-														{% for item in range(0,content_open | length) %}
-														<span class="link content_open"
-															data-width={{content_open[item][2]}}
-															data-height={{content_open[item][3]}}
-															data-iframe={{content_open[item][4]}}
-															data-type={{content_open[item][5]}} data-page={{item}}
-															style="padding-bottom:0">
-															<p4>{{content_open[item][1]}}</p4>
-														</span>
-														{% endfor %}
-													</li>
-												</ul>
-											</i>
-										</a>
-									</li>
-
-									<li class="preventBubble"><a href="data_campus.html"
-											class="opener posit preventBubble">校務資訊</a>
-
-										<i class="secondLayer fa-solid fa-chevron-down fa-chevron-down1680">
-											<ul class="thirdLayer ">
-												<li class="preventBubble">
-
-													{% for item in range(0,content_campus | length) %}
-													<span class="link content_campus"
-														data-width={{content_campus[item][2]}}
-														data-height={{content_campus[item][3]}}
-														data-iframe={{content_campus[item][4]}}
-														data-type={{content_campus[item][5]}} data-page={{item}}
-														style="padding-bottom:0">
-														<p4>{{content_campus[item][1]}}</p4>
-													</span>
-													{% endfor %}
-
-												</li>
-											</ul>
-										</i>
+										{% for item in range(0,content_open | length) %}
+										<span class="link content_open" data-width={{content_open[item][2]}}
+											data-height={{content_open[item][3]}} data-iframe={{content_open[item][4]}}
+											data-type={{content_open[item][5]}} data-page={{item}}
+											style="padding-bottom:0">
+											<p4>{{content_open[item][1]}}</p4>
+										</span>
+										{% endfor %}
 									</li>
 								</ul>
 							</i>
-
-
+							<!-- 因為第三層沒有容器，會導致下拉按鈕跑掉，所以將code 包在a當中，但現在沒有第三層，所以碼掉 -->
+							<!-- </a> -->
 						</li>
+
+						<li class="preventBubble"><a href="data_campus.html"
+								class="opener posit preventBubble">專案資訊（限校內主管使用）</a>
+							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
+								<ul class="secondLayer ">
+									<li class="preventBubble">
+
+										{% for item in range(0,content_campus | length) %}
+										<span class="link content_campus" data-width={{content_campus[item][2]}}
+											data-height={{content_campus[item][3]}}
+											data-iframe={{content_campus[item][4]}}
+											data-type={{content_campus[item][5]}} data-page={{item}}
+											style="padding-bottom:0">
+											<p4>{{content_campus[item][1]}}</p4>
+										</span>
+										{% endfor %}
+
+									</li>
+								</ul>
+							</i>
+						</li>
+						<!-- </ul>
+							</i>
+
+
+						</li> -->
 
 					</ul>
 				</nav>
