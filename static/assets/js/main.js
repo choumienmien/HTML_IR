@@ -82,7 +82,7 @@
 		window.setTimeout(function () {
 			$body.removeClass('is-preload');
 		}, 100);
-		screenSmall();
+		// screenSmall();
 	});
 
 	//CMM_顯示更多
