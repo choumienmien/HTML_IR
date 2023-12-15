@@ -71,7 +71,7 @@
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
-						<h2>校務研究資訊平臺</h2>
+						<h2><a href="IR_public.html">校務研究資訊平臺</a></h2>
 					</header>
 
 
@@ -80,9 +80,10 @@
 						<!-- <li><a href="IR_public.html" class="posit">首頁</a>
 							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
 								<ul class="secondLayer"> -->
-						<li class="preventBubble "><a href="data_open.html" class="preventBubble posit">公開資訊</a>
+						<li class="preventBubble "><a href="data_open.html"
+								class="preventBubble posit font_style">公開資訊</a>
 							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
-								<ul class="secondLayer">
+								<ul class="secondLayer cantsee">
 									<li class="preventBubble">
 										{% for item in range(0,content_open | length) %}
 										<span class="link content_open" data-width={{content_open[item][2]}}
@@ -100,7 +101,7 @@
 						</li>
 
 						<li class="preventBubble"><a href="data_campus.html"
-								class="opener posit preventBubble">專案資訊（限校內主管使用）</a>
+								class="opener posit preventBubble font_style">專案資訊（限校內主管使用）</a>
 							<!-- 每一頁的 layer 中 class=cantsee 並沒有都放 -->
 							<i class="firstLayer fa-solid fa-chevron-down fa-chevron-down1680">
 								<ul class="secondLayer cantsee ">
