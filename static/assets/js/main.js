@@ -53,7 +53,7 @@
 		}
 		$("#originalpage").width(width);
 		$("#originalpage").height(width * rate + 20);
-		$(document).height(width * rate + 100)
+		// $(document).height(width * rate + 100)
 		$("#sidebar").height($(document).height());
 		$(".inner").height($(window).height());
 		console.log($(window).height())
