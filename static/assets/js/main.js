@@ -52,7 +52,7 @@
 			width = $(window).width() * .875;
 		}
 		$("#originalpage").width(width);
-		$("#originalpage").height(width * rate + 20);
+		$("#originalpage").height(width * rate + 100);
 		// if ($(window).width() >= 1680) {
 		// 	$(".fa-chevron-down").addClass("fa-chevron-down1680");
 		// 	console.log("1680");
